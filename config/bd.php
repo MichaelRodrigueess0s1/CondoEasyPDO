@@ -2,12 +2,12 @@
 $host = 'localhost';
 $usuario = 'root';
 $senha = 'sway105base587';
-$bd = 'CondoEasy';
+$bdname = 'CondoEasy';
 
-$mysqli = new mysqli($host, $usuario, $senha, $bd); 
-if($mysqli -> connect_errno)
-{
-    echo"falha de conexão em (".$mysqli ->connect_errno.")".$mysqli -> connect_error;
-}
+$conexao = mysql_connect($host, $usuario, $senha);
+$bd=  mysql_select_db($bdname);
+
+$consulta = mysql_query("select * from usuario");
+echo mysql_num_rows($consulta);
 
 ?>  
